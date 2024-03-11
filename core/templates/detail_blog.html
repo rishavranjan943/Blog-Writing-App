@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+{%block title%}   {%endblock%}
+{%block css%} <style></style> {%endblock%}
+{%block body%}
+
+
+{%if blog%}
+<h3 class="m-3" style="text-align: center; text-transform: uppercase;">{{blog.title}}</h3>
+<p class="m-3">Published At : {{blog.published_date}}</p>
+{%if blog.updated_date%}
+<p class="m-3">Updated At : {{blog.updated_date}}</p>
+{%endif%}
+<p class="m-3">Author : {{blog.author}}</p>
+<p  class="m-5" style="text-align: center;">{{blog.description}}</p>
+<p class="m-3">
+    <a href="{% url 'core:update_blog' id=blog.id%}" class="btn btn-primary">Update</a>
+    <a href="{% url 'core:delete_blog' id=blog.id%}" class="btn btn-danger">Delete</a>
+</p>
+{%else%}
+<p style="text-align: center;">Not able to fetch data connect with us later</p>
+{%endif%}
+
+
+{%endblock%} {%block js%}
+<script></script>
+{%endblock%}

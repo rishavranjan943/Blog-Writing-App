@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{%block title%} UPDATE BLOG {%endblock%}
+{%block css%} <style></style> {%endblock%}
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 offset-md-4">
+            <div class="card">
+                <div class="card-header text-white bg-info">
+                    <div class="card-title">UPDATE BLOG</div>
+                </div>
+                <div class="card-body">
+                    <form action="{% url 'core:update_blog' id=blog.id %}" method="post" enctype="multipart/form-data">
+                        {%csrf_token%}
+                        <div class="form-group">
+                            <input type="text" name="title" id="" placeholder="Enter title" value="{{blog.title}}" />
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <textarea name="description" id="" cols="30" rows="10"
+                                placeholder="Enter the description">{{blog.description}}</textarea>
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="file" name="image" placeholder="Upload Image" id="" />
+                        </div>
+                        <br />
+                        <button type="submit" class="btn btn-info">Update</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%} {%block js%}
+<script></script>
+{%endblock%}

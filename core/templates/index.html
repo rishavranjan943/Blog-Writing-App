@@ -1,0 +1,57 @@
+{% extends 'base.html'%}
+{%block title%} BLOG {%endblock%}
+{%block css%} <style>
+</style> {%endblock%}
+{%block body%}
+
+
+<div class="container">
+    <div class="row">
+        <h3 style="text-align: center;">
+            BLOGS 
+        </h3>
+        <br>
+        <br>
+        <br>
+        {%if blogs%}
+        <table class="table" style="text-align: center;">
+            <thead>
+                <tr>
+                    <th scope="col">SR. No</th>
+                    <th scope="col">Title</th>
+                    <th scope="col">Option</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for blog in blogs %}
+                <tr>
+                    <th scope="row">{{forloop.counter}}</th>
+                    <td>{{blog.title}}</td>
+                    <td><a href="{% url 'core:detail_blog' id=blog.id%}" class="btn btn-success">Details</a></td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        {%else%}
+        <div class="alert alert-{{message.tags}}">
+            No available Blogs
+        </div>
+        {%endif%}
+    </div>
+</div>
+
+{%if blogs.has_previous %}
+<a href="?page=1">First</a>
+<a href="?page={{blogs.previous_page_number}}">Previous</a>
+{%endif%}
+
+page: {{blogs.number}} of {{blogs.paginator.num_pages}}
+{%if blogs.has_next %}
+<a href="?page={{blogs.next_page_number}}">Next</a>
+<a href="?page={{blogs.paginator.num_pages}}">Last</a>
+{%endif%}
+
+{%endblock%}
+
+{%block js%}
+<script></script> {%endblock%}
