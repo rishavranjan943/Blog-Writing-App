@@ -22,17 +22,17 @@ This is a Django-based web application that allows users to write and manage the
 
 1. Clone the repository:
 
-cd blogwritingapp
+2.cd blogwritingapp
 
-pip install -r requirements.txt
+3.pip install -r requirements.txt
 
-python manage.py makemigrations
+4.python manage.py makemigrations
 
-python manage.py migrate
+5.python manage.py migrate
 
-python manage.py runserver
+6.python manage.py runserver
 
-Access the application at http://localhost:8000 in your web browser.
+7.Access the application at http://localhost:8000 in your web browser.
 
 
 Usage :-
